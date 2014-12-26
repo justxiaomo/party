@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="utf-8"?>
+<content>
+	<resources>
+
+
+		<img id="dress_a" href="resources/dress/dress_a.png" />
+		<img id="dress_b" href="resources/dress/dress_b.png" />
+		<img id="dress" href="resources/dress/dress.png" />
+
+
+		<img id="food_a" href="resources/food/food_a.png" />
+		<img id="food_b" href="resources/food/food_b.png" />
+		<img id="food" href="resources/food/food.png" />
+
+		<img id="light_a" href="resources/light/light_a.png" />
+		<img id="light_b" href="resources/light/light_b.png" />
+		<img id="light" href="resources/light/light.png" />
+
+
+		<img id="alarm_a" href="resources/other/alarm_a.png" />
+		<img id="alarm" href="resources/other/alarm.png" />
+		<img id="goto" href="resources/other/goto.png" />
+		<img id="party" href="resources/other/party.png" />
+
+
+
+		<img id="sing_a" href="resources/sing/sing_a.png" />
+		<img id="sing_b" href="resources/sing/sing_b.png" />
+		<img id="sing_c" href="resources/sing/sing_c.png" />
+		<img id="sing" href="resources/sing/sing.png" />
+
+
+
+
+
+		<path id="m_dress_a" href="resources/music/dress/dress_a.mp3" />
+		<path id="m_dress_b" href="resources/music/dress/dress_b.mp3" />
+		<path id="m_dress_c" href="resources/music/dress/dress_c.mp3" />
+		<path id="m_dress" href="resources/music/dress/dress.mp3" />
+
+
+		<path id="m_food_a" href="resources/music/food/food_a.mp3" />
+		<path id="m_food_b" href="resources/music/food/food_b.mp3" />
+		<path id="m_food_c" href="resources/music/food/food_c.mp3" />
+		<path id="m_food" href="resources/music/food/food.mp3" />
+
+		<path id="m_light_a_m" href="resources/music/light/light_a_m.mp3" />
+		<path id="m_light_a" href="resources/music/light/light_a.mp3" />
+		<path id="m_light_b" href="resources/music/light/light_b.mp3" />
+		<path id="m_light" href="resources/music/light/light.mp3" />
+
+		<path id="m_sing_a_m" href="resources/music/sing/sing_a_m.mp3" />
+		<path id="m_sing_a" href="resources/music/sing/sing_a.mp3" />
+		<path id="m_sing_b" href="resources/music/sing/sing_b.mp3" />
+		<path id="m_sing_c" href="resources/music/sing/sing_c.mp3" />
+		<path id="m_sing" href="resources/music/sing/sing.mp3" />
+
+		<path id="m_party_a" href="resources/music/party_a.mp3" />
+		<path id="m_party" href="resources/music/party.mp3" />
+
+		<script id="lua_start" href="script/start.lua" />
+		<script id="lua_alarm" href="script/alarm.lua" />
+
+
+		<script id="lua_show_1" href="script/show_1.lua" />
+		<script id="lua_show_2" href="script/show_2.lua" />
+		<script id="lua_show_3" href="script/show_3.lua" />
+		<script id="lua_show_4" href="script/show_4.lua" />
+
+		<script id="lua_page_action_1" href="script/page_action_1.lua" />
+		<script id="lua_page_action_2" href="script/page_action_2.lua" />
+		<script id="lua_page_action_3" href="script/page_action_3.lua" />
+		<script id="lua_page_action_4" href="script/page_action_4.lua" />
+		<script id="lua_page_action_5" href="script/page_action_5.lua" />
+		<script id="lua_page_action_6" href="script/page_action_6.lua" />
+		<script id="lua_page_action_7" href="script/page_action_7.lua" />
+		<script id="lua_page_action_8" href="script/page_action_8.lua" />
+		<script id="lua_page_action_9" href="script/page_action_9.lua" />
+
+
+		<script id="lua_goto_C" href="script/gotoPage.lua" />
+
+	</resources>
+
+
+	<triggers>
+
+
+
+		<event src="root" message="in_page_begin" dst="init_game" />
+		<event src="n_alarm" message="tap" dst="l_alarm" />
+		<event src="n_light" message="tap" dst="l_show_1" />
+		<event src="n_dress" message="tap" dst="l_show_2" />
+		<event src="n_food" message="tap" dst="l_show_3" />
+		<event src="n_sing" message="tap" dst="l_show_4" />
+
+
+		<event src="dress_1" message="tap" dst="l_page_action_1" />
+		<event src="dress_2" message="tap" dst="l_page_action_2" />
+		<event src="food_1" message="tap" dst="l_page_action_3" />
+		<event src="food_2" message="tap" dst="l_page_action_4" />
+		<event src="light_1" message="tap" dst="l_page_action_5" />
+		<event src="light_2" message="tap" dst="l_page_action_6" />
+		<event src="sing_1" message="tap" dst="l_page_action_7" />
+		<event src="sing_2" message="tap" dst="l_page_action_8" />
+		<event src="sing_3" message="tap" dst="l_page_action_9" />
+
+
+		<event src="i_goto" message="tap" dst="goto_C" />
+	</triggers>
+
+
+	<layer id="root" x="0" y="0" width="1024" height="768">
+
+		<node type="image" resId="party" x="0" y="0" visible="true" />
+		<effect id="init_game" script="lua_start">
+			<path name="background_music" resId="m_party" />
+			<path name="background_music1" resId="m_party_a" />
+		</effect>
+
+		<node id="i_goto" type="image" resId="goto" x="960" y="26"
+			visible="true">
+			<effect id="goto_C" script="lua_goto_C">
+				<node name="0" resId="party " />
+				<node name="1" resId="dress_1" />
+				<node name="2" resId="dress_2" />
+				<node name="3" resId="food_1" />
+				<node name="4" resId="food_2" />
+				<node name="5" resId="light_1" />
+				<node name="6" resId="light_2" />
+				<node name="7" resId="sing_1" />
+				<node name="8" resId="sing_2" />
+				<node name="9" resId="sing_3" />
+			</effect>
+		</node>
+
+		<node id="n_alarm" type="image" resId="alarm" x="935" y="710"
+			visible="true">
+			<effect id="l_alarm" script="lua_alarm">
+				<node name="name_alarm" resId="alarm_1" />
+			</effect>
+		</node>
+
+		<node id="alarm_1" type="image" resId="alarm_a" x="850" y="570"
+			visible="false" />
+
+		<node id="dress_1" type="image" resId="dress_a" x="210" y="88"
+			visible="false">
+			<effect id="l_page_action_1" script="lua_page_action_1">
+				<node name="node2" resId="dress_2" />
+				<path name="music1" resId="m_dress_a" />
+			</effect>
+		</node>
+
+		<node id="dress_2" type="image" resId="dress_b" x="210" y="88"
+			visible="false">
+			<effect id="l_page_action_2" script="lua_page_action_2">
+				<node name="node2" resId="dress_1" />
+				<path name="music1" resId="m_dress_b" />
+				<path name="music2" resId="m_dress_c" />
+
+			</effect>
+		</node>
+
+		<node id="food_1" type="image" resId="food_a" x="210" y="88"
+			visible="false">
+			<effect id="l_page_action_3" script="lua_page_action_3">
+				<node name="node2" resId="food_2" />
+				<path name="music1" resId="m_food_a" />
+			</effect>
+		</node>
+
+		<node id="food_2" type="image" resId="food_b" x="210" y="88"
+			visible="false">
+			<effect id="l_page_action_4" script="lua_page_action_4">
+				<node name="node2" resId="food_1" />
+				<path name="music1" resId="m_food_b" />
+				<path name="music2" resId="m_food_c" />
+			</effect>
+		</node>
+
+		<node id="light_1" type="image" resId="light_a" x="210" y="88"
+			visible="false">
+			<effect id="l_page_action_5" script="lua_page_action_5">
+				<node name="node2" resId="light_2" />
+				<path name="music1" resId="m_light_a_m" />
+				<path name="music2" resId="m_light_a" />
+			</effect>
+		</node>
+
+		<node id="light_2" type="image" resId="light_b" x="210" y="88"
+			visible="false">
+			<effect id="l_page_action_6" script="lua_page_action_6">
+				<node name="node2" resId="light_1" />
+				<path name="music1" resId="m_light_b" />
+			</effect>
+		</node>
+
+		<node id="sing_1" type="image" resId="sing_a" x="210" y="88"
+			visible="false">
+			<effect id="l_page_action_7" script="lua_page_action_7">
+				<node name="node1" resId="sing_2" />
+				<node name="node2" resId="sing_3" />
+				<path name="music1" resId="m_sing_a_m" />
+				<path name="music2" resId="m_sing_a" />
+			</effect>
+		</node>
+
+		<node id="sing_2" type="image" resId="sing_b" x="210" y="88"
+			visible="false">
+			<effect id="l_page_action_8" script="lua_page_action_8">
+				<node name="node1" resId="sing_1" />
+				<node name="node2" resId="sing_3" />
+				<path name="music1" resId="m_sing_b" />
+			</effect>
+		</node>
+
+		<node id="sing_3" type="image" resId="sing_c" x="210" y="88"
+			visible="false">
+			<effect id="l_page_action_9" script="lua_page_action_9">
+				<node name="node1" resId="sing_1" />
+				<node name="node2" resId="sing_2" />
+				<path name="music1" resId="m_sing_c" />
+			</effect>
+		</node>
+
+		<node id="n_light" type="image" resId="light" anchorPointX="0.5"
+			x="155" y="0" visible="true">
+			<effect id="l_show_1" script="lua_show_1">
+				<table name="nodes1">
+					<node name="1" resId="dress_1" />
+					<node name="2" resId="dress_2" />
+					<node name="3" resId="food_1" />
+					<node name="4" resId="food_2" />
+					<node name="5" resId="light_1" />
+					<node name="6" resId="light_2" />
+					<node name="7" resId="sing_1" />
+					<node name="8" resId="sing_2" />
+					<node name="9" resId="sing_3" />
+				</table>
+				<node name="name1" resId="light_1" />
+				<path name="background_music1" resId="m_light" />
+			</effect>
+		</node>
+
+		<node id="n_dress" type="image" resId="dress" anchorPointX="0.5"
+			x="390" y="0" visible="true">
+			<effect id="l_show_2" script="lua_show_2">
+				<table name="nodes2">
+					<node name="1" resId="dress_1" />
+					<node name="2" resId="dress_2" />
+					<node name="3" resId="food_1" />
+					<node name="4" resId="food_2" />
+					<node name="5" resId="light_1" />
+					<node name="6" resId="light_2" />
+					<node name="7" resId="sing_1" />
+					<node name="8" resId="sing_2" />
+					<node name="9" resId="sing_3" />
+				</table>
+				<node name="name2" resId="dress_1" />
+				<path name="background_music2" resId="m_dress" />
+			</effect>
+		</node>
+
+		<node id="n_food" type="image" resId="food" anchorPointX="0.5" x="625"
+			y="0" visible="true">
+			<effect id="l_show_3" script="lua_show_3">
+				<table name="nodes3">
+					<node name="1" resId="dress_1" />
+					<node name="2" resId="dress_2" />
+					<node name="3" resId="food_1" />
+					<node name="4" resId="food_2" />
+					<node name="5" resId="light_1" />
+					<node name="6" resId="light_2" />
+					<node name="7" resId="sing_1" />
+					<node name="8" resId="sing_2" />
+					<node name="9" resId="sing_3" />
+				</table>
+				<node name="name3" resId="food_1" />
+				<path name="background_music3" resId="m_food" />
+			</effect>
+		</node>
+
+		<node id="n_sing" type="image" resId="sing" anchorPointX="0.5" x="865"
+			y="0" visible="true">
+			<effect id="l_show_4" script="lua_show_4">
+				<table name="nodes4">
+					<node name="1" resId="dress_1" />
+					<node name="2" resId="dress_2" />
+					<node name="3" resId="food_1" />
+					<node name="4" resId="food_2" />
+					<node name="5" resId="light_1" />
+					<node name="6" resId="light_2" />
+					<node name="7" resId="sing_1" />
+					<node name="8" resId="sing_2" />
+					<node name="9" resId="sing_3" />
+				</table>
+				<node name="name4" resId="sing_1" />
+				<path name="background_music4" resId="m_sing" />
+			</effect>
+		</node>
+
+	</layer>
+</content>
